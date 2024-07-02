@@ -1,6 +1,5 @@
 from flask import Flask, request, jsonify
 
-
 app = Flask(__name__)
 
 # Sample data
@@ -8,6 +7,7 @@ users = [
     {"id": 1, "name": "John Doe"},
     {"id": 2, "name": "Jane Doe"}
 ]
+
 
 @app.route("/")
 def index():
