@@ -1,7 +1,4 @@
 from flask import Flask, request, jsonify
-from flask_limiter import Limiter
-from flask_limiter.util import get_remote_address
-from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
 
 
 app = Flask(__name__)
@@ -19,7 +16,6 @@ def index():
 
 # Route to get all users
 @app.route('/users', methods=['GET'])
-@jwt_required()
 def get_users():
     return jsonify(users)
 
