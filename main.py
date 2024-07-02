@@ -5,7 +5,6 @@ from flask_jwt_extended import JWTManager, create_access_token, jwt_required, ge
 
 
 app = Flask(__name__)
-limiter = Limiter(app, key_func=get_remote_address)
 
 # Sample data
 users = [
@@ -21,7 +20,6 @@ def index():
 # Route to get all users
 @app.route('/users', methods=['GET'])
 @jwt_required()
-@limiter.limit("5 per minute")  # Example rate limit
 def get_users():
     return jsonify(users)
 
